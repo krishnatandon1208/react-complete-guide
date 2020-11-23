@@ -1,10 +1,14 @@
 import React from "react";
 
-export default function Person() {
+export default function Person(props) {
     return (
         <div>
-            <h1>Hi I am a person</h1>
-            <p>I am {Math.floor(Math.random() * 30)} years old</p>
+            {/* <h1>People in react learning group</h1> */}
+            <div>
+                <p>Name : {props.name}</p>
+                <p>Company: {props.company}</p>
+            </div>
+            <p>{props.children}</p>
         </div>
     )
 }
