@@ -5,10 +5,10 @@ import Person from "./Person/Person";
 function App() {
   return (
     <div className="App">
+      <Person />
       <p>
         Learning ReactJS
-        </p>
-      <Person />
+      </p>
     </div>
   );
 }
