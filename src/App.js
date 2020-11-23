@@ -5,7 +5,8 @@ import Person from "./Person/Person";
 function App() {
   return (
     <div className="App">
-      <Person />
+      <Person name="Krishna" company="TCS"/>
+      <Person name="Kaveri" company="MB-Dubai"/>
       <p>
         Learning ReactJS
       </p>
