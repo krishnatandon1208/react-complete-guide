@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Person from "./Person/Person";
 
@@ -30,6 +30,19 @@ function App() {
 		otherProperty: "Hellozzzz"
 	});
 
+	console.log(personState);
+
+	const switchCompanyHandler = () => {
+		// this.setState({ is now not required.
+		setPersonState({
+			persons: [
+				{ name: "Krishna", company: "Apple", hobbies: "Football" },
+				{ name: "Kaveri", company: "JP Morgan and Co.", hobbies: "Reading" }
+			],
+			otherProperty: personState.otherProperty
+		});
+	}
+
 	return (
 		<div className="App">
 			<Person
@@ -43,7 +56,7 @@ function App() {
 				{personState.persons[1].hobbies}
 			</Person>
 			<h6>{personState.otherProperty}</h6>
-			<button>Switch Company</button>
+			<button onClick={switchCompanyHandler}>Switch Company</button>
 		</div>
 	);
 }
