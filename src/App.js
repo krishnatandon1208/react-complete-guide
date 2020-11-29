@@ -34,6 +34,7 @@ function App() {
 
 	const switchCompanyHandler = () => {
 		// this.setState({ is now not required.
+		alert("Inside switch name handler");
 		setPersonState({
 			persons: [
 				{ name: "Krishna", company: "Apple", hobbies: "Football" },
@@ -47,7 +48,9 @@ function App() {
 		<div className="App">
 			<Person
 				name={personState.persons[0].name}
-				company={personState.persons[0].company}>
+				company={personState.persons[0].company}
+				click={this.switchCompanyHandler}
+			>
 				{personState.persons[0].hobbies}
 			</Person>
 			<Person

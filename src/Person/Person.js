@@ -3,7 +3,7 @@ import React from "react";
 export default function Person(props) {
     return (
         <div>
-            <div>
+            <div onClick={props.click}>
                 <p>Name : {props.name}</p>
                 <p>Company: {props.company}</p>
             </div>
