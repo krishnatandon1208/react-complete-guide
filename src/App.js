@@ -32,12 +32,12 @@ function App() {
 
 	console.log(personState);
 
-	const switchCompanyHandler = () => {
+	const switchCompanyHandler = (newCompanyName) => {
 		// this.setState({ is now not required.
 		alert("Inside switch name handler");
 		setPersonState({
 			persons: [
-				{ name: "Krishna", company: "Apple", hobbies: "Football" },
+				{ name: "Krishna", company: newCompanyName, hobbies: "Football" },
 				{ name: "Kaveri", company: "JP Morgan and Co.", hobbies: "Reading" }
 			],
 			otherProperty: personState.otherProperty
@@ -49,7 +49,7 @@ function App() {
 			<Person
 				name={personState.persons[0].name}
 				company={personState.persons[0].company}
-				click={this.switchCompanyHandler}
+				click={switchCompanyHandler.bind(this, "Amazon")}
 			>
 				{personState.persons[0].hobbies}
 			</Person>

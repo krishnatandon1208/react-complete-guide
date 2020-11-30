@@ -8,6 +8,10 @@ export default function Person(props) {
                 <p>Company: {props.company}</p>
             </div>
             <p>Hobbies: {props.children}</p>
+            <div>
+                <label>Testing 2 way data binding</label>
+                <input type="text" />
+            </div>
         </div>
     )
 }
