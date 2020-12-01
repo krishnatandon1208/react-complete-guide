@@ -27,10 +27,8 @@ function App() {
 			{ name: "Krishna", company: "TCS", hobbies: "Football" },
 			{ name: "Kaveri", company: "MB-Dubai", hobbies: "Reading" }
 		],
-		otherProperty: "Hellozzzz"
+		showPersons: false
 	});
-
-	console.log(personState);
 
 	const switchCompanyHandler = (newCompanyName) => {
 		// this.setState({ is now not required.
@@ -40,7 +38,6 @@ function App() {
 				{ name: "Krishna", company: newCompanyName, hobbies: "Football" },
 				{ name: "Kaveri", company: "MB-Dubai", hobbies: "Reading" }
 			],
-			otherProperty: personState.otherProperty
 		});
 	}
 
@@ -54,24 +51,41 @@ function App() {
 		});
 	}
 
+	const togglePersonsHandler = () => {
+		const doesShow = personState.showPersons;
+		setPersonState({
+			persons: [
+				{ name: "Krishna", company: "TCS", hobbies: "Football" },
+				{ name: "Kaveri", company: "MB-Dubai", hobbies: "Reading" }
+			],
+			showPersons: !doesShow
+		});
+	}
+
 	return (
 		<div className="App">
-			<Person
-				name={personState.persons[0].name}
-				company={personState.persons[0].company}
-				click={switchCompanyHandler.bind(this, "Amazon")}
-			>
-				{personState.persons[0].hobbies}
-			</Person>
-			<Person
-				name={personState.persons[1].name}
-				company={personState.persons[1].company}
-				changed={companyChangedHandler}
-			>
-				{personState.persons[1].hobbies}
-			</Person>
-			<h6>{personState.otherProperty}</h6>
-			<button onClick={switchCompanyHandler}>Switch Company</button>
+			{
+				personState.showPersons ?
+				<div>
+					<Person
+						name={personState.persons[0].name}
+						company={personState.persons[0].company}
+						//click={switchCompanyHandler.bind(this, "Amazon")}
+					>
+						{personState.persons[0].hobbies}
+					</Person>
+					<Person
+						name={personState.persons[1].name}
+						company={personState.persons[1].company}
+						//changed={companyChangedHandler}
+					>
+						{personState.persons[1].hobbies}
+					</Person>
+				</div>
+				:
+				null //render nothing
+			}
+			<button onClick={togglePersonsHandler}>Switch Company</button>
 		</div>
 	);
 }
