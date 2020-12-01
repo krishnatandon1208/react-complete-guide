@@ -10,7 +10,11 @@ export default function Person(props) {
             <p>Hobbies: {props.children}</p>
             <div>
                 <label>Testing 2 way data binding</label>
-                <input type="text" />
+                <input 
+                    type="text" 
+                    onChange={props.changed} 
+                    value={props.company}    
+                />
             </div>
         </div>
     )

@@ -38,9 +38,19 @@ function App() {
 		setPersonState({
 			persons: [
 				{ name: "Krishna", company: newCompanyName, hobbies: "Football" },
-				{ name: "Kaveri", company: "JP Morgan and Co.", hobbies: "Reading" }
+				{ name: "Kaveri", company: "MB-Dubai", hobbies: "Reading" }
 			],
 			otherProperty: personState.otherProperty
+		});
+	}
+
+	const companyChangedHandler = (event) => {
+		//Here, we will still want to change the state.
+		setPersonState({
+			persons: [
+				{ name: "Krishna", company: "Microsoft", hobbies: "Football" },
+				{ name: "Kaveri", company: event.target.value, hobbies: "Reading" }
+			]
 		});
 	}
 
@@ -55,7 +65,9 @@ function App() {
 			</Person>
 			<Person
 				name={personState.persons[1].name}
-				company={personState.persons[1].company}>
+				company={personState.persons[1].company}
+				changed={companyChangedHandler}
+			>
 				{personState.persons[1].hobbies}
 			</Person>
 			<h6>{personState.otherProperty}</h6>
