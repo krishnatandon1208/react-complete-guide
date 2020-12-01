@@ -62,29 +62,31 @@ function App() {
 		});
 	}
 
+	let persons = null;
+	if (personState.showPersons) {
+		persons = (
+			<div>
+				<Person
+					name={personState.persons[0].name}
+					company={personState.persons[0].company}
+				//click={switchCompanyHandler.bind(this, "Amazon")}
+				>
+					{personState.persons[0].hobbies}
+				</Person>
+				<Person
+					name={personState.persons[1].name}
+					company={personState.persons[1].company}
+				//changed={companyChangedHandler}
+				>
+					{personState.persons[1].hobbies}
+				</Person>
+			</div>
+		)
+	}
+
 	return (
 		<div className="App">
-			{
-				personState.showPersons ?
-				<div>
-					<Person
-						name={personState.persons[0].name}
-						company={personState.persons[0].company}
-						//click={switchCompanyHandler.bind(this, "Amazon")}
-					>
-						{personState.persons[0].hobbies}
-					</Person>
-					<Person
-						name={personState.persons[1].name}
-						company={personState.persons[1].company}
-						//changed={companyChangedHandler}
-					>
-						{personState.persons[1].hobbies}
-					</Person>
-				</div>
-				:
-				null //render nothing
-			}
+			{persons}
 			<button onClick={togglePersonsHandler}>Switch Company</button>
 		</div>
 	);
