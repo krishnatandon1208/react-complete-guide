@@ -30,26 +30,26 @@ function App() {
 		showPersons: false
 	});
 
-	const switchCompanyHandler = (newCompanyName) => {
-		// this.setState({ is now not required.
-		alert("Inside switch name handler");
-		setPersonState({
-			persons: [
-				{ name: "Krishna", company: newCompanyName, hobbies: "Football" },
-				{ name: "Kaveri", company: "MB-Dubai", hobbies: "Reading" }
-			],
-		});
-	}
+	// const switchCompanyHandler = (newCompanyName) => {
+	// 	// this.setState({ is now not required.
+	// 	alert("Inside switch name handler");
+	// 	setPersonState({
+	// 		persons: [
+	// 			{ name: "Krishna", company: newCompanyName, hobbies: "Football" },
+	// 			{ name: "Kaveri", company: "MB-Dubai", hobbies: "Reading" }
+	// 		],
+	// 	});
+	// }
 
-	const companyChangedHandler = (event) => {
-		//Here, we will still want to change the state.
-		setPersonState({
-			persons: [
-				{ name: "Krishna", company: "Microsoft", hobbies: "Football" },
-				{ name: "Kaveri", company: event.target.value, hobbies: "Reading" }
-			]
-		});
-	}
+	// const companyChangedHandler = (event) => {
+	// 	//Here, we will still want to change the state.
+	// 	setPersonState({
+	// 		persons: [
+	// 			{ name: "Krishna", company: "Microsoft", hobbies: "Football" },
+	// 			{ name: "Kaveri", company: event.target.value, hobbies: "Reading" }
+	// 		]
+	// 	});
+	// }
 
 	const togglePersonsHandler = () => {
 		const doesShow = personState.showPersons;
@@ -66,20 +66,15 @@ function App() {
 	if (personState.showPersons) {
 		persons = (
 			<div>
-				<Person
-					name={personState.persons[0].name}
-					company={personState.persons[0].company}
-				//click={switchCompanyHandler.bind(this, "Amazon")}
-				>
-					{personState.persons[0].hobbies}
-				</Person>
-				<Person
-					name={personState.persons[1].name}
-					company={personState.persons[1].company}
-				//changed={companyChangedHandler}
-				>
-					{personState.persons[1].hobbies}
-				</Person>
+				{personState.persons.map((person) => {
+					return (
+						<Person key={person.name + 1}>  
+							{person.name}
+							{person.company}
+						</Person>
+					)
+				})
+				}
 			</div>
 		)
 	}
