@@ -1,13 +1,11 @@
 .App {
 	text-align: center;
-	min-width: 25%;
-	max-width: 50%;
 	margin: 0 auto;
 }
 
 .App > div {
 	margin: 40px;
-	border: 2px solid #ffa500;
+	/* border: 2px solid #ffa500; */
 	padding: 20px;
 	font-size: 18px;
 	border-radius: 10px;
@@ -69,4 +67,11 @@
 	to {
 		transform: rotate(360deg);
 	}
+}
+
+
+.person-css {
+	border: 2px solid #ffa500;
+	padding: 20px;
+	margin: 40px;
 }

@@ -62,16 +62,26 @@ function App() {
 		});
 	}
 
+	const deletePersonHandler = (personIndex) => {
+		const personArray = personState.persons;
+		personArray.splice(personIndex, 1); 
+		setPersonState({
+			persons: personArray,
+			showPersons: !(persons.showPersons)
+		});
+	}
+
 	let persons = null;
 	if (personState.showPersons) {
 		persons = (
 			<div>
-				{personState.persons.map((person) => {
+				{personState.persons.map((person, index) => {
 					return (
-						<Person key={person.name + 1}>  
-							{person.name}
-							{person.company}
-						</Person>
+						<Person key={person.name} 
+							click={() => deletePersonHandler(index)}
+							name = {person.name}
+							company = {person.company}
+						/>
 					)
 				})
 				}
